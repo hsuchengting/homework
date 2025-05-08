@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回應式網頁設計範例</title>
+    <style>
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-top: 40px;
+        }
+
+        /* 導覽列容器 */
+        .nav {
+            position: relative;
+            background-color: #fff;
+            padding: 10px 0;
+        }
+
+        /* 三條線按鈕 */
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            position: absolute;
+            left: 20px;
+            top: 10px;
+        }
+
+        /* 選單列表（橫向） */
+        .list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 1em;
+            color: #333;
+        }
+
+            .list span {
+                cursor: pointer;
+            }
+
+        /* 商品區塊 */
+        .product-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 0 20px;
+        }
+
+        .product {
+            background-color: darkgray;
+            padding: 10px;
+            width: 200px;
+            box-sizing: border-box;
+            border-radius: 8px;
+        }
+
+            .product img {
+                width: 100%;
+                height: auto;
+                border-radius: 4px;
+            }
+
+            .product p {
+                margin-top: 10px;
+                font-weight: bold;
+            }
+
+        /* 手機版樣式 */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            .list {
+                flex-direction: column;
+                display: none;
+                margin-top: 50px;
+            }
+
+                .list.active {
+                    display: flex;
+                }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>這是一個回應式網頁設計文字過長的範例</h1>
+
+    <div class="nav">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="list" id="menu">
+            <span>選項1</span>
+            <span>選項2</span>
+            <span>選項3</span>
+            <span>選項4</span>
+        </div>
+    </div>
+
+    <div class="product-container">
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQn7081PKpr4SZRtSZmXKBQuOHABT1ygOFiQg&s=草莓" alt="草莓">
+            <p>草莓</p>
+        </div>
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStDPfmxCzDbwsKa4n5eHNoQPxNobxfRFDxFg&s=蘋果" alt="蘋果">
+            <p>蘋果</p>
+        </div>
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZj_cvlN0sp9egPfFYxtPVRJrUkM4jvhZBqQ&s=番茄" alt="番茄">
+            <p>番茄</p>
+        </div>
+        <div class="product">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEkPKE1G6fHO6aIU766ShFXBApbgQoxQMyHw&s=藍莓" alt="藍莓">
+            <p>藍莓</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById("menu");
+            menu.classList.toggle("active");
+        }
+    </script>
+
+</body>
+</html>
